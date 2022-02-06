@@ -55,7 +55,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az storage blob delete-batch --source `$web --account-name arumidesign --pattern "*"
+          az storage blob delete-batch --source $web --account-name arumidesign --pattern "*"
 
     - name: Upload to blob storage
       uses: azure/CLI@v1
