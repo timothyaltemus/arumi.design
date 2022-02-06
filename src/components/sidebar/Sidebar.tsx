@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 import logo from '../../logo.svg';
 import logoSquare from '../../logo-square.svg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const KNOWN_ROUTES = [/^\/about/, /^\/contact/, /^\/work/, /^\/work\/.*/];
 type LogoStyle = 'square' | 'circle';
