@@ -48,10 +48,7 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
     "eslint": "^8.8.0",
-=======
->>>>>>> 0195dd5b38f2dc458b100c4f6182c88eb28e40b3
     "prettier": "^2.5.1"
   }
 }
