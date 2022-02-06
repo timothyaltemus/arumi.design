@@ -1,0 +1,16 @@
+.sidebar {
+  overflow: hidden;
+  border-right: 1px solid #e5e5e5;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 3em;
+}
+
+.logo {
+  width: 120px;
+  cursor: pointer;
+}
