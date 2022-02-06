@@ -16,18 +16,12 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.1.0
-      with:
-        # Artifact name
-        name: production-files
-        
-    - name: Download artifact
-      uses: dawidd6/action-download-artifact@v2
-      with:
-        workflow: build-site.yml
-        workflow_conclusion: success
-    
+    - name: Install NPM packages
+      run: npm ci
+
+    - name: Build project
+      run: npm run build --production
+
     - name: Azure login
       uses: azure/login@v1
       with:
