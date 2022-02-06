@@ -78,6 +78,24 @@ function loadPage() {
     );
   };
 
+<<<<<<< HEAD
+=======
+  var burgerMenu = function () {
+    $('.js-colorlib-nav-toggle').on('click', function (event) {
+      event.preventDefault();
+      var $this = $(this);
+
+      if ($('body').hasClass('offcanvas')) {
+        $this.removeClass('active');
+        $('body').removeClass('offcanvas');
+      } else {
+        $this.addClass('active');
+        $('body').addClass('offcanvas');
+      }
+    });
+  };
+
+>>>>>>> main
   // Click outside of offcanvass
   var mobileMenuOutsideClick = function () {
     $(document).click(function (e) {
@@ -157,6 +175,10 @@ function loadPage() {
   $(function () {
     fullHeight();
     contentWayPoint();
+<<<<<<< HEAD
+=======
+    burgerMenu();
+>>>>>>> main
     mobileMenuOutsideClick();
     sliderMain();
     stickyFunction();

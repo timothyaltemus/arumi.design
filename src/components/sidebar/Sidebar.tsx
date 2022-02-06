@@ -46,7 +46,7 @@ const Sidebar = () => {
   const hamburgerClasses = isOpen
     ? [...hamburgerBaseClasses, 'active']
     : hamburgerBaseClasses;
-  console.log(isOpen);
+    
   return (
     <>
       <div
