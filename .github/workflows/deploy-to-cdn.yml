@@ -33,11 +33,18 @@ jobs:
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
     
+    - name: Clean out blob storage account
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az storage blob delete-batch --source `$web --account-name arumidesign --pattern "*"
+
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
             az storage blob upload-batch --account-name arumidesign --auth-mode key -d '$web' -s ./build
+            
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
