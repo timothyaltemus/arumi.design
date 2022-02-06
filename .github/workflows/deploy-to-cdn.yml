@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: ["Build site"]
+    branches: [main]
+    types: [completed]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
+    steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.0
+      with:
+        # Artifact name
+        name: production-files
+        # Destination path
+        path: ./build
+        
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build-site.yml
+        workflow_conclusion: success
+    
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Upload to Azure blob storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+            az storage blob upload-batch --account-name craazstoragedemo48765 -d '$web' -s ./production-files
+    
+    - name: Azure logout
+      run: |
+            az logout
