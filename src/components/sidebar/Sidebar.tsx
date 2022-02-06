@@ -1,15 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
-import logo from '../../logo.svg';
 import logoSquare from '../../logo-square.svg';
 import { useState } from 'react';
 
 const KNOWN_ROUTES = [/^\/about/, /^\/contact/, /^\/work/, /^\/work\/.*/];
-type LogoStyle = 'square' | 'circle';
 
 const Sidebar = () => {
-  const [logoStyle, setLogoStyle] = useState<LogoStyle>('circle');
-
   const sidebarClasses = ['border', 'js-fullheight', styles.sidebar].join(' ');
   const location = useLocation();
   function isKnownPathname() {
@@ -31,52 +27,70 @@ const Sidebar = () => {
     return '';
   }
 
-  function toggleLogo() {
-    if (logoStyle === 'circle') {
-      setLogoStyle('square');
+  const [isOpen, setIsOpen] = useState(false);
+  function toggleMenu() {
+    if (document.body.classList.contains('offcanvas')) {
+      document.body.classList.remove('offcanvas');
+      setIsOpen(false);
     } else {
-      setLogoStyle('circle');
+      document.body.classList.add('offcanvas');
+      setIsOpen(true);
     }
   }
 
+  const hamburgerBaseClasses = [
+    'js-colorlib-nav-toggle',
+    'colorlib-nav-toggle',
+    styles.hamburger,
+  ];
+  const hamburgerClasses = isOpen
+    ? [...hamburgerBaseClasses, 'active']
+    : hamburgerBaseClasses;
+  console.log(isOpen);
   return (
-    <aside id="colorlib-aside" className={sidebarClasses}>
-      <div className={styles['logo-container']} onClick={toggleLogo}>
-        <img
-          src={logoStyle === 'circle' ? logo : logoSquare}
-          className={styles.logo}
-          alt="Arumi Design"
-        ></img>
+    <>
+      <div
+        className={hamburgerClasses.join(' ')}
+        onClick={toggleMenu}
+        role="button">
+        <i></i>
       </div>
-      <nav id="colorlib-main-menu" role="navigation">
-        <ul>
-          <li
-            className={[
-              getLinkClasses('/about', true),
-              !isKnownPathname() ? '' : 'colorlib-active'
-            ].join(' ')}
-          >
-            <Link to="/about">About</Link>
-          </li>
-          <li className={getLinkClasses('/work')}>
-            <Link to={'/work'}>Work</Link>
-          </li>
-          <li className={getLinkClasses('/contact')}>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <aside id="colorlib-aside" className={sidebarClasses}>
+        <div className={styles['logo-container']}>
+          <img
+            src={logoSquare}
+            className={styles.logo}
+            alt="Arumi Design"></img>
+        </div>
+        <nav id="colorlib-main-menu" role="navigation">
+          <ul>
+            <li
+              className={[
+                getLinkClasses('/about', true),
+                !isKnownPathname() ? '' : 'colorlib-active',
+              ].join(' ')}>
+              <Link to="/about">About</Link>
+            </li>
+            <li className={getLinkClasses('/work')}>
+              <Link to={'/work'}>Work</Link>
+            </li>
+            <li className={getLinkClasses('/contact')}>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <div className="colorlib-footer">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/arumi-choudhary/">
-              <i className="icon-linkedin2"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
+        <div className="colorlib-footer">
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/in/arumi-choudhary/">
+                <i className="icon-linkedin2"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </>
   );
 };
 

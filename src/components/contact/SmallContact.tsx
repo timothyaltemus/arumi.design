@@ -7,16 +7,14 @@ const SmallContact = () => {
         <div className="row">
           <div
             className="col-md-6 animate-box"
-            data-animate-effect="fadeInLeft"
-          >
+            data-animate-effect="fadeInLeft">
             <h2>Get in Touch!</h2>
           </div>
         </div>
         <div className="row">
           <div
             className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-            data-animate-effect="fadeInLeft"
-          >
+            data-animate-effect="fadeInLeft">
             <p className="colorlib-lead">
               Separated they live in Bookmarksgrove right at the coast of the
               Semantics, a large language ocean.

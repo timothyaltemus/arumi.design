@@ -21,12 +21,6 @@ jobs:
       with:
         # Artifact name
         name: production-files
-        
-    - name: Download artifact
-      uses: dawidd6/action-download-artifact@v2
-      with:
-        workflow: build-site.yml
-        workflow_conclusion: success
     
     - name: Azure login
       uses: azure/login@v1
