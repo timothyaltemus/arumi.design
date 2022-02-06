@@ -16,17 +16,19 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.1.0
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v1
       with:
-        # Artifact name
-        name: production-files
-        
-    - name: Download artifact
-      uses: dawidd6/action-download-artifact@v2
-      with:
-        workflow: build-site.yml
-        workflow_conclusion: success
+        node-version: 16.x
+
+    - name: Install NPM packages
+      run: npm ci
+    
+    - name: Build project
+      run: npm run build
     
     - name: Azure login
       uses: azure/login@v1
@@ -38,7 +40,7 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name craazstoragedemo48765 -d '$web' -s ./production-files
+            az storage blob upload-batch --account-name craazstoragedemo48765 -d '$web' -s ./build
     
     - name: Azure logout
       run: |
