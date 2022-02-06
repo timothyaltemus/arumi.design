@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
   
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: Test & Build Artifact
     runs-on: ubuntu-latest
     
     steps:
@@ -27,7 +27,25 @@ jobs:
     
     - name: Build project
       run: npm run build
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ./build/
+  
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
     
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: build
+
     - name: Azure login
       uses: azure/login@v1
       with:
