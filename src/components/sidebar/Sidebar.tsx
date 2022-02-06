@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
-import logoSquare from '../../logo-square.svg';
+import logo from '../../logo.svg';
 import { useState } from 'react';
 
 const KNOWN_ROUTES = [/^\/about/, /^\/contact/, /^\/work/, /^\/work\/.*/];
@@ -57,10 +57,7 @@ const Sidebar = () => {
       </div>
       <aside id="colorlib-aside" className={sidebarClasses}>
         <div className={styles['logo-container']}>
-          <img
-            src={logoSquare}
-            className={styles.logo}
-            alt="Arumi Design"></img>
+          <img src={logo} className={styles.logo} alt="Arumi Design"></img>
         </div>
         <nav id="colorlib-main-menu" role="navigation">
           <ul>
