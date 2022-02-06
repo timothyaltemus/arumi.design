@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
   
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: Test & Build Artifact
     runs-on: ubuntu-latest
     
     steps:
@@ -27,17 +27,42 @@ jobs:
     
     - name: Build project
       run: npm run build
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ./build/
+  
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
     
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: build
+
     - name: Azure login
       uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
     
+    - name: Clean out blob storage account
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az storage blob delete-batch --source `$web --account-name arumidesign --pattern "*"
+
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name arumidesign --auth-mode key -d '$web' -s ./build
+            az storage blob upload-batch --account-name arumidesign --auth-mode key -d '$web' -s .
+            
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
