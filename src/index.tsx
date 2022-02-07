@@ -4,6 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './fonts/icomoon.eot';
+import './fonts/icomoon.svg';
+import './fonts/icomoon.ttf';
+import './fonts/icomoon.woff';
+import './style.css';
+import './icomoon.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
