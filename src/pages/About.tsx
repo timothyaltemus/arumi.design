@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import AboutPhotos from '../components/about/AboutPhotos';
 import SmallContact from '../components/contact/SmallContact';
 import { initAnimations } from '../utils/animations';
+import styles from './About.module.css';
 
 const About = () => {
   useEffect(() => {
@@ -11,20 +13,12 @@ const About = () => {
     <>
       <main className="colorlib-about">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6">
-              <div
-                className="about-img animate-box"
-                data-animate-effect="fadeInLeft"
-                style={{ backgroundImage: '' }}>
-                <div
-                  className="about-img-2 animate-box"
-                  data-animate-effect="fadeInRight"
-                  style={{ backgroundImage: 'url(images/headshot.jpg)' }}></div>
-              </div>
+          <div className={styles.row}>
+            <div className={styles.col} style={{ position: 'relative' }}>
+              <AboutPhotos />
             </div>
             <div
-              className="col-md-6 animate-box"
+              className={[styles.col, 'animate-box'].join(' ')}
               data-animate-effect="fadeInLeft">
               <div className="about-desc">
                 <span className="heading-meta">Welcome &amp; Introduce</span>
