@@ -13,6 +13,8 @@
   --color-primary: #000;
   --color-accent: #000;
   --color-accent-hover: rgba(0, 0, 0, 0.6);
+  --color-link: #8ab4f8;
+  --color-link-hover: #8ab4f899;
   --orig-color-accent: #f75940;
   --orig-color-accent-hover: #f86e58;
 }
@@ -39,7 +41,7 @@ body,
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-link);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -47,9 +49,9 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: var(--color-accent);
+  color: var(--color-link);
   outline: none;
-  text-decoration: none !important;
+  text-decoration: underline;
 }
 
 p {

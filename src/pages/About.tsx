@@ -44,7 +44,14 @@ const About = () => {
                 </p>
                 <p>
                   Aside from this, I enjoy running, participating in marathons
-                  and being a full time dog mom to my puppy, Pixel!
+                  and being a full time dog mom to my puppy,{' '}
+                  <a
+                    href="https://www.instagram.com/pixeltheminidood/"
+                    target="_blank"
+                    rel="noreferrer">
+                    Pixel
+                  </a>
+                  !
                 </p>
               </div>
             </div>
