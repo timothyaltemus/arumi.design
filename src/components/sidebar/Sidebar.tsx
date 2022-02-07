@@ -80,7 +80,18 @@ const Sidebar = () => {
         <div className="colorlib-footer">
           <ul>
             <li>
-              <a href="https://www.linkedin.com/in/arumi-choudhary/">
+              <a
+                href="https://www.instagram.com/designsbyarumi/"
+                target="_blank"
+                rel="noreferrer">
+                <i className="icon-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/arumi-choudhary/"
+                target="_blank"
+                rel="noreferrer">
                 <i className="icon-linkedin2"></i>
               </a>
             </li>
