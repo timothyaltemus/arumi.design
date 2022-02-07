@@ -13,6 +13,7 @@
   --color-primary: #000;
   --color-accent: #000;
   --color-accent-hover: rgba(0, 0, 0, 0.6);
+  --color-accent-text-hover: rgba(0, 0, 0, 0.4);
   --orig-color-accent: #f75940;
   --orig-color-accent-hover: #f86e58;
 }
@@ -47,7 +48,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: var(--color-accent);
+  color: var(--color-accent-text-hover);
   outline: none;
   text-decoration: none !important;
 }
@@ -189,7 +190,7 @@ figure figcaption {
   letter-spacing: 1px;
 }
 #colorlib-aside #colorlib-main-menu ul li a {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--color-accent-text-hover);
   text-decoration: none;
   position: relative;
   padding: 10px 0;
@@ -280,7 +281,7 @@ figure figcaption {
 #colorlib-aside .colorlib-footer ul li a:focus {
   text-decoration: none;
   outline: none;
-  color: var(--color-accent);
+  color: var(--color-accent-text-hover);
 }
 
 #colorlib-main {
