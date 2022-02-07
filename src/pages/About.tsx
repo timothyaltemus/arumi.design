@@ -22,124 +22,30 @@ const About = () => {
               data-animate-effect="fadeInLeft">
               <div className="about-desc">
                 <span className="heading-meta">Welcome &amp; Introduce</span>
-                <h3>Hello! my name is Arumi Choudhary!</h3>
+                <h3 className={styles.header}>Hello, I Am Arumi!</h3>
                 <p>
-                  I am a User Experience Designer based in Austin,Texas. I enjoy
-                  carefully investigating human experience and behavior. I have
-                  a strong passion to understand how humans interact with
+                  I am a User Experience Technologist based in Austin, Texas. I
+                  enjoy carefully investigating human experience and behavior. I
+                  have a strong passion to understand how humans interact with
                   multiple interfaces. I dream up new ways to spark and distill
                   insight, and inspire teams and clients to address people's
                   needs through bold, optimistic design.
                 </p>
-              </div>
-              <div className="fancy-collapse-panel">
-                <div
-                  className="panel-group"
-                  id="accordion"
-                  role="tablist"
-                  aria-multiselectable="true">
-                  <div className="panel panel-default">
-                    <div className="panel-heading" role="tab" id="headingOne">
-                      <h4 className="panel-title">
-                        <a
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#collapseOne"
-                          aria-expanded="true"
-                          aria-controls="collapseOne">
-                          Why choose me?
-                        </a>
-                      </h4>
-                    </div>
-                    <div
-                      id="collapseOne"
-                      className="panel-collapse collapse in"
-                      role="tabpanel"
-                      aria-labelledby="headingOne">
-                      <div className="panel-body">
-                        <div className="row">
-                          <div className="col-md-6">
-                            <p>
-                              Far far away, behind the word mountains, far from
-                              the countries Vokalia and Consonantia, there live
-                              the blind texts.{' '}
-                            </p>
-                          </div>
-                          <div className="col-md-6">
-                            <p>
-                              Separated they live in Bookmarksgrove right at the
-                              coast of the Semantics, a large language ocean.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="panel panel-default">
-                    <div className="panel-heading" role="tab" id="headingTwo">
-                      <h4 className="panel-title">
-                        <a
-                          className="collapsed"
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="collapseTwo">
-                          What I do?
-                        </a>
-                      </h4>
-                    </div>
-                    <div
-                      id="collapseTwo"
-                      className="panel-collapse collapse"
-                      role="tabpanel"
-                      aria-labelledby="headingTwo">
-                      <div className="panel-body">
-                        <p>
-                          Far far away, behind the word{' '}
-                          <strong>mountains</strong>, far from the countries
-                          Vokalia and Consonantia, there live the blind texts.
-                          Separated they live in Bookmarksgrove right at the
-                          coast of the Semantics, a large language ocean.
-                        </p>
-                        <ul>
-                          <li>Separated they live in Bookmarksgrove right</li>
-                          <li>Separated they live in Bookmarksgrove right</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="panel panel-default">
-                    <div className="panel-heading" role="tab" id="headingThree">
-                      <h4 className="panel-title">
-                        <a
-                          className="collapsed"
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree">
-                          My Specialties
-                        </a>
-                      </h4>
-                    </div>
-                    <div
-                      id="collapseThree"
-                      className="panel-collapse collapse"
-                      role="tabpanel"
-                      aria-labelledby="headingThree">
-                      <div className="panel-body">
-                        <p>
-                          Far far away, behind the word{' '}
-                          <strong>mountains</strong>, far from the countries
-                          Vokalia and Consonantia, there live the blind texts.
-                          Separated they live in Bookmarksgrove right at the
-                          coast of the Semantics, a large language ocean.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <p>
+                  I graduated with a Bachelor’s degree in Management Information
+                  Systems at the University of Houston in May 2020.
+                </p>
+                <p>
+                  My passion for UX Design and Research started while I was
+                  enrolled in a 2 year rotational program at an Energy
+                  Technology company. I was presented with an opportunity to
+                  rotate with the HQ UX team and have since been involved with
+                  them carefully curating designs and research for the business.
+                </p>
+                <p>
+                  Aside from this, I enjoy running, participating in marathons
+                  and being a full time dog mom to my puppy, Pixel!
+                </p>
               </div>
             </div>
           </div>
