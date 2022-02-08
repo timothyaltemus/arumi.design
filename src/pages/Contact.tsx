@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { initAnimations } from '../utils/animations';
+import style from './Contact.module.css';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Contact = () => {
@@ -24,39 +25,24 @@ const Contact = () => {
           <div className="row">
             <div className="col-md-5 col-md-push-6">
               <div
-                className="colorlib-feature colorlib-feature-sm animate-box"
+                className={[style.container, 'animate-box'].join(' ')}
                 data-animate-effect="fadeInLeft">
-                <div className="colorlib-icon">
-                  <i className="icon-globe-outline"></i>
+                <div className={style.icon}>
+                  <i className="icon-mail"></i>
                 </div>
-                <div className="colorlib-text">
-                  <p>
-                    <a href="#">info@domain.com</a>
-                  </p>
+                <div className={style.text}>
+                  <a href="mailto:info@arumi.design">info@arumi.design</a>
                 </div>
               </div>
 
               <div
-                className="colorlib-feature colorlib-feature-sm animate-box"
+                className={[style.container, 'animate-box'].join(' ')}
                 data-animate-effect="fadeInLeft">
-                <div className="colorlib-icon">
-                  <i className="icon-map"></i>
-                </div>
-                <div className="colorlib-text">
-                  <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-                </div>
-              </div>
-
-              <div
-                className="colorlib-feature colorlib-feature-sm animate-box"
-                data-animate-effect="fadeInLeft">
-                <div className="colorlib-icon">
+                <div className={style.icon}>
                   <i className="icon-phone"></i>
                 </div>
-                <div className="colorlib-text">
-                  <p>
-                    <a href="tel://">+123 456 7890</a>
-                  </p>
+                <div className={style.text}>
+                  <a href="tel://+18323597707">+1 (832) 359-7707</a>
                 </div>
               </div>
             </div>
