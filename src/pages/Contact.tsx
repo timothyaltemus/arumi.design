@@ -10,7 +10,7 @@ const Contact = () => {
 
   return (
     <>
-      <main className="colorlib-contact">
+      <div className="colorlib-contact">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -95,7 +95,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };
