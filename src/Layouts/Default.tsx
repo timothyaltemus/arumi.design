@@ -1,4 +1,3 @@
-import Footer from '../components/footer/Footer';
 import Sidebar from '../components/sidebar/Sidebar';
 
 type DefaultLayoutProps = {
@@ -9,10 +8,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <div id="colorlib-page">
       <Sidebar />
-      <div id="colorlib-main">
-        {children}
-        <Footer />
-      </div>
+      <main id="colorlib-main">{children}</main>
     </div>
   );
 };

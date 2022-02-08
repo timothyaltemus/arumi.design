@@ -11,7 +11,7 @@ const About = () => {
 
   return (
     <>
-      <main className="colorlib-about">
+      <div className="colorlib-about">
         <div className="container-fluid">
           <div className={styles.row}>
             <div className={styles.col} style={{ position: 'relative' }}>
@@ -57,7 +57,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
       <SmallContact />
     </>
   );
