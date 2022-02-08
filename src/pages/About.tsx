@@ -21,7 +21,7 @@ const About = () => {
               className={[styles.col, 'animate-box'].join(' ')}
               data-animate-effect="fadeInLeft">
               <div className="about-desc">
-                <span className="heading-meta">Welcome &amp; Introduce</span>
+                <span className="heading-meta">Welcome &amp; Introduction</span>
                 <h3 className={styles.header}>Hello, I Am Arumi!</h3>
                 <p>
                   I am a User Experience Technologist based in Austin, Texas. I
