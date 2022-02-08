@@ -6,11 +6,18 @@
 .logo-container {
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
   margin-bottom: 3em;
 }
 
 .logo {
   width: 120px;
   cursor: pointer;
+}
+
+.copyright,
+.credits,
+.link,
+.socials {
+  text-align: center;
 }

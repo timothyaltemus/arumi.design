@@ -10,7 +10,7 @@ const Work = () => {
 
   return (
     <>
-      <main className="colorlib-work">
+      <div className="colorlib-work">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 col-md-offset-3 col-md-pull-3">
@@ -315,7 +315,7 @@ const Work = () => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
       <SmallContact />
     </>
   );

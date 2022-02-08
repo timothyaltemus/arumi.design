@@ -3,7 +3,13 @@ import styles from './Sidebar.module.css';
 import logo from '../../logo.svg';
 import { useState } from 'react';
 
-const KNOWN_ROUTES = [/^\/about/, /^\/contact/, /^\/work/, /^\/work\/.*/];
+const KNOWN_ROUTES = [
+  /^\/about/,
+  /^\/contact/,
+  /^\/work/,
+  /^\/work\/.*/,
+  /\/credits/,
+];
 
 const Sidebar = () => {
   const sidebarClasses = ['border', 'js-fullheight', styles.sidebar].join(' ');
@@ -17,14 +23,14 @@ const Sidebar = () => {
 
   function getLinkClasses(route: string, base: boolean = false) {
     if (base && location.pathname === '/') {
-      return 'colorlib-active';
+      return [styles.link, 'colorlib-active'].join(' ');
     }
 
     if (location.pathname.startsWith(route)) {
-      return 'colorlib-active';
+      return [styles.link, 'colorlib-active'].join(' ');
     }
 
-    return '';
+    return styles.link;
   }
 
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +49,7 @@ const Sidebar = () => {
     'colorlib-nav-toggle',
     styles.hamburger,
   ];
+
   const hamburgerClasses = isOpen
     ? [...hamburgerBaseClasses, 'active']
     : hamburgerBaseClasses;
@@ -78,7 +85,7 @@ const Sidebar = () => {
         </nav>
 
         <div className="colorlib-footer">
-          <ul>
+          <ul className={styles.socials}>
             <li>
               <a
                 href="https://www.instagram.com/designsbyarumi/"
@@ -96,6 +103,14 @@ const Sidebar = () => {
               </a>
             </li>
           </ul>
+          <div className={styles.copyright}>
+            <small>Copyright &copy; {new Date().getFullYear()}</small>
+          </div>
+          <div className={styles.credits}>
+            <small>
+              <Link to="/credits">Credits</Link>
+            </small>
+          </div>
         </div>
       </aside>
     </>
