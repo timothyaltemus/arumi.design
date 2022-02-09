@@ -1,0 +1,37 @@
+name: Deploy Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - functions/**/*
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Build & Test Cloud Functions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install NPM packages
+        run: npm ci
+
+      - name: Create Env File
+        run: |
+          touch .env
+          echo ${{ secrets.FUNCTIONS_ENV }} >> .env
+          cat .env
+
+      - name: Deploy Cloud Functions
+        run: npm run deploy:func
