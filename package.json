@@ -11,11 +11,11 @@
     "format:app": "cd ./app && npm run format",
     "format:check:app": "cd ./app && npm run format:check",
     "ci:func": "cd ./functions && npm ci",
-    "start:func": "cd ./app && npm start",
-    "build:func": "cd ./app && npm run build",
-    "lint:func": "cd ./app && npm run lint",
-    "format:func": "cd ./app && npm run format",
-    "format:check:func": "cd ./app && npm run format:check"
+    "start:func": "cd ./functions && npm start",
+    "build:func": "cd ./functions && npm run build",
+    "lint:func": "cd ./functions && npm run lint",
+    "format:func": "cd ./functions && npm run format",
+    "format:check:func": "cd ./functions && npm run format:check"
   },
   "repository": {
     "type": "git",
