@@ -17,7 +17,7 @@
     "lint:func": "cd ./functions && npm run lint",
     "format:func": "cd ./functions && npm run format",
     "format:check:func": "cd ./functions && npm run format:check",
-    "deploy:func": "firebase deploy --only functions"
+    "deploy:func": "firebase deploy --only functions --json"
   },
   "repository": {
     "type": "git",
