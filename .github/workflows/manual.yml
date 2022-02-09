@@ -55,9 +55,14 @@ jobs:
       - name: Write to file
         run: echo 'THIS SHOULD BE WRITTEN IN THE FILE!!!!' >> .env
         
-      - run: echo $cwd
+      - run: pwd
+      
       - run: ls
         
       - name: Read file contents
         run: cat .env
+        
+      - run: touch ~/file.json
+      
+      - run: ls ~/
         
