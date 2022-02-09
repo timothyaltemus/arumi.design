@@ -33,12 +33,11 @@ jobs:
         run: |
           touch .env
           echo `${{ secrets.FUNCTIONS_ENV }}` > .env
-          cat .env
 
       - name: Deploy Cloud Functions
         run: |
           echo `$HOME`
           touch firebase-credentials.json
           echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > $HOME/firebase-credentials.json
-          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-credentials.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-credentials.json &&
           npm run deploy:func
