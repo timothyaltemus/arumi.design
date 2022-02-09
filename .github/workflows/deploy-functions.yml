@@ -37,6 +37,6 @@ jobs:
 
       - name: Deploy Cloud Functions
         run: |
-          echo `${{ secrets.FIREBASE_SERVICE_ACCOUNT }}` > $HOME/.firebase-credentials.json
-          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.firebase-credentials.json
+          echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > ~/.firebase-credentials.json
+          export GOOGLE_APPLICATION_CREDENTIALS=~/.firebase-credentials.json
           npm run deploy:func
