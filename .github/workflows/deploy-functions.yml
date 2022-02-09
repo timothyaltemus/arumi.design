@@ -29,9 +29,10 @@ jobs:
       - name: Install NPM packages
         run: npm ci
 
+      - run: echo ${{ secrets.FUNCTIONS_ENV }}
+
       - name: Create Env File
         run: |
-          touch .env
           echo `${{ secrets.FUNCTIONS_ENV }}` > .env
 
       - name: use sl
