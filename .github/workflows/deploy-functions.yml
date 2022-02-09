@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - run: echo ${{ secrets.FUNCTIONS_ENV }}
-
+      - run: echo $HOME
       - name: Create Env File
         run: |
           echo `${{ secrets.FUNCTIONS_ENV }}` > .env
