@@ -60,7 +60,7 @@ jobs:
       - run: ls
         
       - name: Read file contents
-        run: cat .env
+        run: echo $(pwd)/.env && cat $(pwd)/.env
         
       - run: touch ~/file.json
       
