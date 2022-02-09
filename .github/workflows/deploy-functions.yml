@@ -24,8 +24,6 @@ jobs:
       - name: Build env variables
         run: echo ${{ secrets.FUNCTIONS_ENV }} > $HOME/.env
 
-      - run: cat $HOME/.env
-
       - name: Authenticate Google Service Account
         uses: google-github-actions/auth@v0
         with:
@@ -34,4 +32,6 @@ jobs:
       - name: Deploy Cloud Functions
         uses: google-github-actions/deploy-cloud-functions@v0
         with:
+          name: 'arumi-design-functions'
+          runtime: 'nodejs16'
           env_vars: $HOME/.env
