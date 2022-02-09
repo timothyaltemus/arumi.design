@@ -1,0 +1,35 @@
+name: CI Functions
+
+on:
+  pull_request:
+    paths:
+      - functions/**/*
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  ci-functions:
+    name: Build, Lint, and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+
+    - name: Install NPM packages
+      run: npm run ci:func
+
+    - name: Check Formatting
+      run: npm run format:check:func
+
+    - name: Lint
+      run: npm run lint:func
+
+    - name: Build project
+      run: npm run build:func
