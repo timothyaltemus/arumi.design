@@ -50,10 +50,10 @@ jobs:
           echo test, and deploy your project.e
           
       - name: Creates a file
-        run: touch .env
+        run: touch $(pwd)/.env
         
       - name: Write to file
-        run: echo 'THIS SHOULD BE WRITTEN IN THE FILE!!!!' >> .env
+        run: echo 'THIS SHOULD BE WRITTEN IN THE FILE!!!!' >> $(pwd).env
         
       - run: pwd
       
