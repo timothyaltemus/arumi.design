@@ -12,10 +12,12 @@
     "format:check:app": "cd ./app && npm run format:check",
     "ci:func": "cd ./functions && npm ci",
     "start:func": "cd ./functions && npm start",
+    "serve:func": "cd ./functions && npm run serve",
     "build:func": "cd ./functions && npm run build",
     "lint:func": "cd ./functions && npm run lint",
     "format:func": "cd ./functions && npm run format",
-    "format:check:func": "cd ./functions && npm run format:check"
+    "format:check:func": "cd ./functions && npm run format:check",
+    "deploy:func": "firebase deploy --only functions"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/timothyaltemus/arumi.design/issues"
   },
-  "homepage": "https://github.com/timothyaltemus/arumi.design#readme"
+  "homepage": "https://github.com/timothyaltemus/arumi.design#readme",
+  "dependencies": {
+    "firebase-tools": "^10.1.5"
+  }
 }
