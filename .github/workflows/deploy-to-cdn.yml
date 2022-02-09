@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - app/**/*
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,16 +25,16 @@ jobs:
         node-version: 16.x
 
     - name: Install NPM packages
-      run: npm ci
+      run: npm run ci:app
     
     - name: Build project
-      run: npm run build
+      run: npm run build:app --production
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v2
       with:
         name: build
-        path: ./build/
+        path: ./app/build/
   
   deploy:
     name: Deploy to Production

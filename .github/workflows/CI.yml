@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - app/**/*
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,13 +25,13 @@ jobs:
         node-version: 16.x
 
     - name: Install NPM packages
-      run: npm ci
+      run: npm ci:app
 
     - name: Check Formatting
-      run: npm run format:check
+      run: npm run format:check:app
 
     - name: Lint
-      run: npm run lint
+      run: npm run lint:app
     
     - name: Build project
-      run: npm run build
+      run: npm run build:app
