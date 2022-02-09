@@ -21,22 +21,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v1
+      - name: Build env variables
+        run: echo ${{ secrets.FUNCTIONS_ENV }} > $HOME/.env
+
+      - run: cat $HOME/.env
+
+      - name: Authenticate Google Service Account
+        uses: google-github-actions/auth@v0
         with:
-          node-version: 16.x
-
-      - name: Install NPM packages
-        run: npm ci
-
-      - name: Create Env File
-        run: |
-          touch .env
-          echo `${{ secrets.FUNCTIONS_ENV }}` > .env
-          cat .env
-
+          credentials_json: ${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}
+      
       - name: Deploy Cloud Functions
-        run: |
-          echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > ~/.firebase-credentials.json
-          export GOOGLE_APPLICATION_CREDENTIALS=~/.firebase-credentials.json
-          npm run deploy:func
+        uses: google-github-actions/deploy-cloud-functions@v0
+        with:
+          env_vars: $HOME/.env
