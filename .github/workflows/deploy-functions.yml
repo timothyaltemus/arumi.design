@@ -38,7 +38,7 @@ jobs:
         run: ls
       
       - name: echo HOME
-        run echo $HOME
+        run echo "$HOME"
 
       - name: Deploy Cloud Functions
         run: |
