@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
   
 jobs:
-  Deploy:
-    name: Deploy Cloud Functions
+  use-google-job:
+    name: Deploy Cloud Functions - with google-github-actions/deploy-cloud-functions@v0
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,37 @@ jobs:
           runtime: nodejs16
           env_vars: ${{ secrets.FUNCTIONS_ENV }}
           service_account_email: github-cloud-functions-service@arumi-design.iam.gserviceaccount.com
+  
+  use-firebase-cli:
+    name: Deploy Cloud Functions - with firebase cli
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install NPM packages
+        run: npm ci
+        
+      - name: Create environment file
+        run: echo ${{ secrets.FUNCTION_ENV }} > $HOME/env.json
+        
+      - name: Create credentails file
+        run: echo ${{ secrets.CLOUD_FUNCTION_CREDENTIALS }} > $HOME/credentials.json
+        
+      - name: Verify File Creations
+        run: ls $HOME
+        
+      - name: Set up Credentials Environment Variable
+        run: export GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
+        
+      - name: Set Environment Variables For Firebase Run
+        run: firebase functions:config:set env="$(cat env.json)"
+      
+      - name: Deploy Functions
+        run: firebase deploy --only functions
