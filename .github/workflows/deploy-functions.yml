@@ -53,11 +53,10 @@ jobs:
       - name: Create environment file
         run: echo `${{ secrets.FUNCTIONS_ENV }}` > $HOME/env.json
         
-      - name: Create credentails file
-        run: echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > $HOME/credentials.json
-        
-      - name: Verify File Creations
-        run: ls $HOME
+      - name: Authenticate Google Service Account
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}
         
       - name: Set Environment Variables For Firebase Run
         run: npm run firebase -- functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
@@ -66,5 +65,3 @@ jobs:
       
       - name: Deploy Functions
         run: npm run firebase -- deploy --only functions
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
