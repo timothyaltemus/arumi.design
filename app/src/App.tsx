@@ -10,7 +10,9 @@ function App() {
   return (
     <DefaultLayout>
       <Routes>
-        <Route path="projects" element={<Project />} />
+        <Route path="projects/:id" element={<Project />}>
+          {/* <Route path=":id" element={<Project />} /> */}
+        </Route>
         <Route path="work" element={<Work />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
@@ -19,8 +21,10 @@ function App() {
         <Route
           path="*"
           element={
-            <div style={{ padding: '1rem' }}>
-              <p>There's nothing here!</p>
+            <div className="nf-404-page">
+              <div className="container-fluid">
+                <p>There's nothing here!</p>
+              </div>
             </div>
           }
         />
