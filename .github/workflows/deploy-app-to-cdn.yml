@@ -29,6 +29,8 @@ jobs:
     
     - name: Build project
       run: npm run build:app --production
+      env:
+        REACT_APP_FIREBASE_URL: ${{ secrets.FIREBASE_URL }}
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v2
