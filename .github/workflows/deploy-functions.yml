@@ -59,14 +59,12 @@ jobs:
       - name: Verify File Creations
         run: ls $HOME
         
-      - name: Set up Credentials Environment Variable
-        run: export GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
-        
-      - name: Verify Envrionment Variables
-        run: echo $GOOGLE_APPLICATION_CREDENTIALS
-        
       - name: Set Environment Variables For Firebase Run
         run: npm run firebase -- functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
       
       - name: Deploy Functions
         run: npm run firebase -- deploy --only functions
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
