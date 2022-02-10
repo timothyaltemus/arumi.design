@@ -6,6 +6,7 @@ import styles from './About.module.css';
 
 const About = () => {
   useEffect(() => {
+    window.scroll(0, 0);
     initAnimations();
   }, []);
 

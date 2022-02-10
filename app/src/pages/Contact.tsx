@@ -9,6 +9,7 @@ import TextArea from '../components/ui/control/TextArea';
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Contact = () => {
   useEffect(() => {
+    window.scroll(0, 0);
     initAnimations();
   }, []);
 

@@ -494,7 +494,8 @@ body.offcanvas .colorlib-nav-toggle,
 .colorlib-about,
 .colorlib-services,
 .colorlib-contact,
-.nf-404-page {
+.nf-404-page,
+.project-details-page {
   padding-top: 4em;
   padding-bottom: 9em;
   clear: both;
@@ -507,7 +508,8 @@ body.offcanvas .colorlib-nav-toggle,
   .colorlib-about,
   .colorlib-services,
   .colorlib-contact,
-  .nf-404-page {
+  .nf-404-page,
+  .project-details-page {
     padding-top: 5em;
     padding-bottom: 8em;
   }
@@ -798,7 +800,7 @@ body.offcanvas .colorlib-nav-toggle,
 @media screen and (max-width: 768px) {
   .project .desc {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.8);
   }
   .project .desc h3 {
     font-style: 28px;
