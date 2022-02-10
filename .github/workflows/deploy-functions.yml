@@ -51,7 +51,7 @@ jobs:
         run: npm ci
         
       - name: Create environment file
-        run: echo `${{ secrets.FUNCTION_ENV }}` > $HOME/env.json
+        run: echo `${{ secrets.FUNCTIONS_ENV }}` > $HOME/env.json
         
       - name: Create credentails file
         run: echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > $HOME/credentials.json
@@ -62,8 +62,11 @@ jobs:
       - name: Set up Credentials Environment Variable
         run: export GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
         
+      - name: Verify Envrionment Variables
+        run: echo $GOOGLE_APPLICATION_CREDENTIALS
+        
       - name: Set Environment Variables For Firebase Run
-        run: firebase functions:config:set env="$(cat $HOME/env.json)"
+        run: firebase functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
       
       - name: Deploy Functions
         run: firebase deploy --only functions
