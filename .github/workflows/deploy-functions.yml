@@ -1,5 +1,6 @@
 name: Deploy Functions
 
+# TODO: Get this to work
 on:
   push:
     branches:
@@ -13,27 +14,6 @@ on:
   workflow_dispatch:
   
 jobs:
-  use-google-job:
-    name: Deploy Cloud Functions - with google-github-actions/deploy-cloud-functions@v0
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Authenticate Google Service Account
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}
-      
-      - name: Deploy Cloud Functions
-        uses: google-github-actions/deploy-cloud-functions@v0
-        with:
-          name: sendEmail
-          runtime: nodejs16
-          env_vars: ${{ secrets.FUNCTIONS_ENV }}
-          service_account_email: github-cloud-functions-service@arumi-design.iam.gserviceaccount.com
-  
   use-firebase-cli:
     name: Deploy Cloud Functions - with firebase cli
     runs-on: ubuntu-latest
@@ -50,10 +30,8 @@ jobs:
       - name: Install NPM packages
         run: npm ci
         
-      - name: Authenticate Google Service Account
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}
+      - name: Create credentails file
+        run: echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > $HOME/credentials.json
         
       - name: Set Environment Variables For Firebase Run
         run: npm run firebase -- functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
@@ -62,3 +40,5 @@ jobs:
       
       - name: Deploy Functions
         run: npm run firebase -- deploy --only functions
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json

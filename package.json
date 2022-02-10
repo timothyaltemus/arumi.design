@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/timothyaltemus/arumi.design#readme",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "firebase-tools": "^10.1.5"
   }
 }
