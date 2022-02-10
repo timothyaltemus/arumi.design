@@ -10,9 +10,7 @@ function App() {
   return (
     <DefaultLayout>
       <Routes>
-        <Route path="projects/:id" element={<Project />}>
-          {/* <Route path=":id" element={<Project />} /> */}
-        </Route>
+        <Route path="projects/:id" element={<Project />} />
         <Route path="work" element={<Work />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
