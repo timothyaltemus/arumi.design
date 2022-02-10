@@ -66,7 +66,7 @@ jobs:
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
         
       - name: Set Environment Variables For Firebase Run
-        run: firebase functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
+        run: npm run firebase -- functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
       
       - name: Deploy Functions
-        run: firebase deploy --only functions
+        run: npm run firebase -- deploy --only functions
