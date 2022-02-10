@@ -16,8 +16,8 @@ const SmallContact = () => {
             className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
             data-animate-effect="fadeInLeft">
             <p className="colorlib-lead">
-              Separated they live in Bookmarksgrove right at the coast of the
-              Semantics, a large language ocean.
+              I hope you are enjoying my site, please reach out to me if you
+              have any questions/concerns. Thank you!
             </p>
             <p>
               <Link to="/contact" className="btn btn-primary btn-learn">
