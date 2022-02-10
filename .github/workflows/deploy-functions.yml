@@ -63,7 +63,7 @@ jobs:
         run: export GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
         
       - name: Set Environment Variables For Firebase Run
-        run: firebase functions:config:set env="$(cat env.json)"
+        run: firebase functions:config:set env="$(cat $HOME/env.json)"
       
       - name: Deploy Functions
         run: firebase deploy --only functions
