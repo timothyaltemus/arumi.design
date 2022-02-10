@@ -4,6 +4,7 @@
   "description": "Repository for Arumi's personal portfolio",
   "main": "\"\"",
   "scripts": {
+    "format": "cd ./app && npm run format && cd ../functions && npm run format",
     "ci:app": "cd ./app && npm ci",
     "start:app": "cd ./app && npm start",
     "build:app": "cd ./app && npm run build",
