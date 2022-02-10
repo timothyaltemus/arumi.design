@@ -68,3 +68,7 @@ node_modules/
 # build folders
 build/
 dist/
+lib/
+
+# environment variables files
+**.env

@@ -1424,3 +1424,12 @@ body.offcanvas .colorlib-nav-toggle,
     padding-top: 30px;
   }
 }
+
+.btn-primary[disabled] {
+  background-color: var(--color-accent-hover);
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

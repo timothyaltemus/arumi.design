@@ -1,12 +1,60 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initAnimations } from '../utils/animations';
 import style from './Contact.module.css';
+import firebaseService from '../services/firebase-service';
+import Input from '../components/ui/control/Input';
+import { defaultRequiredValidator, emailValidator } from '../utils/validators';
+import TextArea from '../components/ui/control/TextArea';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Contact = () => {
   useEffect(() => {
     initAnimations();
   }, []);
+
+  const [error, setError] = useState<string>();
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [name, setName] = useState<{ value: string; valid: boolean }>({
+    value: '',
+    valid: false,
+  });
+  const [message, setMessage] = useState<{ value: string; valid: boolean }>({
+    value: '',
+    valid: false,
+  });
+  const [email, setEmail] = useState<{ value: string; valid: boolean }>({
+    value: '',
+    valid: false,
+  });
+  const [phoneNumber, setPhoneNumber] = useState<{
+    value: string;
+    valid: boolean;
+  }>({
+    value: '',
+    valid: false,
+  });
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (isFormValid()) {
+      try {
+        await firebaseService.sendEmail({
+          email: email.value,
+          message: message.value,
+          name: name.value,
+          phoneNumber: phoneNumber.value,
+        });
+        setError(undefined);
+      } catch {
+        setError('Something went wrong. Please try again later.');
+      }
+      setSubmitted(true);
+    }
+  };
+
+  const isFormValid = () => {
+    return email.valid && message.valid && name.valid && phoneNumber.valid;
+  };
 
   return (
     <>
@@ -47,47 +95,62 @@ const Contact = () => {
               </div>
             </div>
             <div className="col-md-7 col-md-pull-5">
+              {submitted && (
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1 col-md-pull-1">
+                    <div
+                      className={`alert ${
+                        !error ? 'alert-success' : 'alert-danger'
+                      }`}>
+                      {error ?? 'Your message has been sent. Thank you!'}
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="row">
                 <div
                   className="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
                   data-animate-effect="fadeInLeft">
-                  <form action="">
+                  <form onSubmit={onSubmit}>
+                    <Input
+                      name="name"
+                      placeholder="Name"
+                      validators={[defaultRequiredValidator]}
+                      setValue={setName}
+                      type="text"
+                      value={name.value}
+                    />
+                    <Input
+                      name="email"
+                      placeholder="Email"
+                      setValue={setEmail}
+                      type="email"
+                      validators={[defaultRequiredValidator, emailValidator]}
+                      value={email.value}
+                    />
+                    <Input
+                      name="phone-number"
+                      placeholder="Phone number"
+                      setValue={setPhoneNumber}
+                      type="text"
+                      validators={[defaultRequiredValidator]}
+                      value={phoneNumber.value}
+                    />
+                    <TextArea
+                      cols={30}
+                      name="message"
+                      placeholder="Message"
+                      rows={7}
+                      setValue={setMessage}
+                      value={message.value}
+                      validators={[defaultRequiredValidator]}
+                    />
                     <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Name"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Phone"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <textarea
-                        name=""
-                        id="message"
-                        cols={30}
-                        rows={7}
-                        className="form-control"
-                        placeholder="Message"></textarea>
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="submit"
+                      <button
                         className="btn btn-primary btn-send-message"
-                        value="Send Message"
-                      />
+                        disabled={!isFormValid()}>
+                        Send Message
+                      </button>
                     </div>
                   </form>
                 </div>

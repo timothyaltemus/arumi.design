@@ -327,7 +327,8 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-body, #root {
+body,
+#root {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
@@ -7060,4 +7061,13 @@ button.close {
   }
 }
 
-/*# sourceMappingURL=bootstrap.css.map */
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}

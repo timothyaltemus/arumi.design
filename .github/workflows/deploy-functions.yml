@@ -1,0 +1,43 @@
+name: Deploy Functions
+
+# TODO: Get this to work
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - functions/**/*
+      - .github/workflows/deploy-functions.yml
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  use-firebase-cli:
+    name: Deploy Cloud Functions - with firebase cli
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install NPM packages
+        run: npm ci
+        
+      - name: Create credentails file
+        run: echo `${{ secrets.CLOUD_FUNCTION_CREDENTIALS }}` > $HOME/credentials.json
+        
+      - name: Set Environment Variables For Firebase Run
+        run: npm run firebase -- functions:config:set env="${{ secrets.FUNCTIONS_ENV }}"
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
+      
+      - name: Deploy Functions
+        run: npm run firebase -- deploy --only functions
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
