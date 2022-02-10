@@ -50,9 +50,6 @@ jobs:
       - name: Install NPM packages
         run: npm ci
         
-      - name: Create environment file
-        run: echo `${{ secrets.FUNCTIONS_ENV }}` > $HOME/env.json
-        
       - name: Authenticate Google Service Account
         uses: google-github-actions/auth@v0
         with:
