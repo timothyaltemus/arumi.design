@@ -6,7 +6,7 @@ const Project = () => {
     initAnimations();
   }, []);
 
-  return <main></main>;
+  return <main>Project Details</main>;
 };
 
 export default Project;

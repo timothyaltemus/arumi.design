@@ -4,7 +4,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Credits from './pages/Credits';
 import Work from './pages/Work';
-import Project from './pages/work/Project';
+import Project from './pages/Work/Project';
 
 function App() {
   return (
