@@ -9,8 +9,7 @@
     "logs": "firebase functions:log",
     "format": "prettier --write ./src/**/*.{ts,tsx,js,jsx,json,md,mdx}",
     "format:check": "prettier --check ./src/**/*.{ts,tsx,js,jsx,json,md,mdx}",
-    "lint": "eslint --ext .js,.ts .",
-    "firebase": "firebase"
+    "lint": "eslint --ext .js,.ts ."
   },
   "engines": {
     "node": "16"
