@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AboutPhotos from '../components/about/AboutPhotos';
 import SmallContact from '../components/contact/SmallContact';
 import { initAnimations } from '../utils/animations';
@@ -54,6 +55,9 @@ const About = () => {
                   </a>
                   !
                 </p>
+                <Link className="btn btn-primary" to="/work">
+                  See My Work
+                </Link>
               </div>
             </div>
           </div>
