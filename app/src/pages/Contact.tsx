@@ -39,6 +39,13 @@ const Contact = () => {
     valid: false,
   });
 
+  const clearForm = () => {
+    setName({ value: '', valid: false });
+    setMessage({ value: '', valid: false });
+    setEmail({ value: '', valid: false });
+    setPhoneNumber({ value: '', valid: false });
+  };
+
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isFormValid()) {
@@ -50,6 +57,7 @@ const Contact = () => {
           phoneNumber: phoneNumber.value,
         });
         setError(undefined);
+        clearForm();
       } catch {
         setError('Something went wrong. Please try again later.');
       }

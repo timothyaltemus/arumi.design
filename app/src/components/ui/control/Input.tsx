@@ -1,4 +1,10 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 import { Control, ValidatorFn } from '../../../models/control';
 
 export type InputProps = {
@@ -18,6 +24,8 @@ const Input = ({
   validators,
   value,
 }: InputProps) => {
+  useEffect(() => {}, [value]);
+
   const [control, setControl] = useState(new Control(name, value, validators));
   const [dirty, setDirty] = useState(false);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +40,6 @@ const Input = ({
     }
   };
 
-  console.log(dirty, control.valid, control.invalid);
   return (
     <div className="form-group">
       <input
@@ -42,7 +49,7 @@ const Input = ({
           !dirty || control.valid ? '' : 'is-invalid'
         }`}
         placeholder={placeholder}
-        value={control.value}
+        value={value}
         onChange={onChange}
         onFocus={onFocus}
       />

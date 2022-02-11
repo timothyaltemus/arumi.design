@@ -1,4 +1,10 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 import { Control, ValidatorFn } from '../../../models/control';
 
 export type TextAreaProps = {
@@ -20,6 +26,8 @@ const TextArea = ({
   validators,
   value,
 }: TextAreaProps) => {
+  useEffect(() => {}, [value]);
+
   const [control, setControl] = useState(new Control(name, value, validators));
   const [dirty, setDirty] = useState(false);
   const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -44,7 +52,7 @@ const TextArea = ({
           !dirty || control.valid ? '' : 'is-invalid'
         }`}
         placeholder={placeholder}
-        value={control.value}
+        value={value}
         onChange={onChange}
         onFocus={onFocus}
       />
