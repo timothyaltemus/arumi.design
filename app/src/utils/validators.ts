@@ -20,3 +20,12 @@ export const requiredValidator =
   };
 
 export const defaultRequiredValidator = requiredValidator();
+
+const phoneNumberRegex = /^[+]*[(]?[0-9]*[)]?[-\s./0-9]*(ext[.]?)?\s?[0-9]*$/;
+export const phoneNumberValidator: ValidatorFn<string> = (control) => {
+  if (phoneNumberRegex.test(control.value)) return null;
+
+  return {
+    error: 'Enter a valid phone number.',
+  };
+};
