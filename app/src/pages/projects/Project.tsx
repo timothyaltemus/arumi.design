@@ -17,12 +17,16 @@ const Project = () => {
     resizeProjectDetails();
 
     window.addEventListener('resize', resizeProjectDetails);
-  }, []);
+  }, [id]);
 
   const [project, index, max] = getProject(id ?? '');
   if (!id || !project) {
     return <Navigate replace to="/" />;
   }
+
+  const goBack = () => {
+    navigate('/work');
+  };
 
   const goToProject = (index: number) => {
     if (index >= 0 && index < max) {
@@ -35,6 +39,11 @@ const Project = () => {
     <>
       <div className="project-details-page" id="">
         <div className="container-fluid">
+          <div className={style['x-container']}>
+            <button className={style.x} onClick={goBack}>
+              <i className="icon-times"></i>
+            </button>
+          </div>
           <div className={style['project-details']}>
             <div
               className={[style.images, 'animate-box'].join(' ')}
