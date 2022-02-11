@@ -150,6 +150,11 @@ export const work: Work[] = [
   //   },
 ];
 
-export const getProject = (id: string) => {
-  return work.find((project) => project.id === id);
+export const getProject = (id: string): [Work, number, number] => {
+  const index = work.findIndex((project) => project.id === id);
+  return [work[index], index, work.length];
+};
+
+export const getProjectByIndex = (index: number) => {
+  return work[index];
 };

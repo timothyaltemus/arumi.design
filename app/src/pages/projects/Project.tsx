@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { initAnimations } from '../../utils/animations';
 import style from './Project.module.css';
-import { getProject } from '../../data/work';
+import { getProject, getProjectByIndex } from '../../data/work';
 import { resizeProjectDetails } from '../../utils/sizing';
 import SmallContact from '../../components/contact/SmallContact';
 
 const Project = () => {
+  window.scroll(0, 0);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   useEffect(() => {
     window.scroll(0, 0);
     initAnimations();
@@ -15,11 +19,17 @@ const Project = () => {
     window.addEventListener('resize', resizeProjectDetails);
   }, []);
 
-  const { id } = useParams();
-  const project = getProject(id ?? '');
+  const [project, index, max] = getProject(id ?? '');
   if (!id || !project) {
     return <Navigate replace to="/" />;
   }
+
+  const goToProject = (index: number) => {
+    if (index >= 0 && index < max) {
+      const id = getProjectByIndex(index).id;
+      navigate(`/projects/${id}`);
+    }
+  };
 
   return (
     <>
@@ -63,6 +73,21 @@ const Project = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className={style['nav-container']}>
+          <button
+            className={style['page-button']}
+            disabled={index === 0}
+            onClick={() => goToProject(index - 1)}>
+            <i className="icon-arrow-left3"></i>
+          </button>
+          <div>Project {index + 1}</div>
+          <button
+            className={style['page-button']}
+            disabled={index === max - 1}
+            onClick={() => goToProject(index + 1)}>
+            <i className="icon-arrow-right3"></i>
+          </button>
         </div>
       </div>
       <SmallContact />
