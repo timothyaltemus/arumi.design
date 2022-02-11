@@ -64,9 +64,9 @@ const Sidebar = () => {
         <i></i>
       </div>
       <aside id="colorlib-aside" className={sidebarClasses}>
-        <div className={styles['logo-container']}>
+        <Link className={styles['logo-container']} to="/">
           <img src={logo} className={styles.logo} alt="Arumi Design"></img>
-        </div>
+        </Link>
         <nav id="colorlib-main-menu" role="navigation">
           <ul>
             <li
