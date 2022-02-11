@@ -4,6 +4,7 @@ import { initAnimations } from '../../utils/animations';
 import style from './Project.module.css';
 import { getProject } from '../../data/work';
 import { resizeProjectDetails } from '../../utils/sizing';
+import SmallContact from '../../components/contact/SmallContact';
 
 const Project = () => {
   useEffect(() => {
@@ -21,48 +22,51 @@ const Project = () => {
   }
 
   return (
-    <div className="project-details-page" id="">
-      <div className="container-fluid">
-        <div className={style['project-details']}>
-          <div
-            className={[style.images, 'animate-box'].join(' ')}
-            data-animate-effect="fadeInRight"
-            id="project-details-image">
-            <div className={style['image-container']}>
-              <img
-                className={style.image}
-                src={`/images/${project.image}`}
-                alt=""
-              />
-            </div>
-          </div>
-          <div className={style.details}>
+    <>
+      <div className="project-details-page" id="">
+        <div className="container-fluid">
+          <div className={style['project-details']}>
             <div
-              className="animate-box"
-              data-animate-effect="fadeInLeft"
-              id="product-details-section">
-              <h3 className="animate-box" data-animate-effect="fadeInRight">
-                {project.title}
-              </h3>
-              <p className="animate-box" data-animate-effect="fadeInRight">
-                Role: {project.role}
-                <br />
-                Type: {project.type}
-                <br />
-                Timeline: {project.timeline}
-                <br />
-                Platform: {project.platform}
-              </p>
-              <div className="animate-box" data-animate-effect="fadeInLeft">
-                {project.description.map((paragraph, key) => (
-                  <p key={key}>{paragraph}</p>
-                ))}
+              className={[style.images, 'animate-box'].join(' ')}
+              data-animate-effect="fadeInRight"
+              id="project-details-image">
+              <div className={style['image-container']}>
+                <img
+                  className={style.image}
+                  src={`/images/${project.image}`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className={style.details}>
+              <div
+                className="animate-box"
+                data-animate-effect="fadeInLeft"
+                id="product-details-section">
+                <h3 className="animate-box" data-animate-effect="fadeInRight">
+                  {project.title}
+                </h3>
+                <p className="animate-box" data-animate-effect="fadeInRight">
+                  Role: {project.role}
+                  <br />
+                  Type: {project.type}
+                  <br />
+                  Timeline: {project.timeline}
+                  <br />
+                  Platform: {project.platform}
+                </p>
+                <div className="animate-box" data-animate-effect="fadeInLeft">
+                  {project.description.map((paragraph, key) => (
+                    <p key={key}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <SmallContact />
+    </>
   );
 };
 
