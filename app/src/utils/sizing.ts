@@ -10,6 +10,5 @@ export const resizeProjectDetails = () => {
     return;
   }
   const detailsHeight = projectDetailsSection.clientHeight;
-  console.log(detailsHeight);
   image.style.maxHeight = detailsHeight + 'px';
 };
