@@ -3,7 +3,11 @@ import { initAnimations } from '../utils/animations';
 import style from './Contact.module.css';
 import firebaseService from '../services/firebase-service';
 import Input from '../components/ui/control/Input';
-import { defaultRequiredValidator, emailValidator } from '../utils/validators';
+import {
+  defaultRequiredValidator,
+  emailValidator,
+  phoneNumberValidator,
+} from '../utils/validators';
 import TextArea from '../components/ui/control/TextArea';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -72,33 +76,10 @@ const Contact = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-5 col-md-push-6">
-              <div
-                className={[style.container, 'animate-box'].join(' ')}
-                data-animate-effect="fadeInLeft">
-                <div className={style.icon}>
-                  <i className="icon-mail"></i>
-                </div>
-                <div className={style.text}>
-                  <a href="mailto:info@arumi.design">info@arumi.design</a>
-                </div>
-              </div>
-
-              <div
-                className={[style.container, 'animate-box'].join(' ')}
-                data-animate-effect="fadeInLeft">
-                <div className={style.icon}>
-                  <i className="icon-phone"></i>
-                </div>
-                <div className={style.text}>
-                  <a href="tel://+12815120156">+1 (281) 512-0156</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-7 col-md-pull-5">
+            <div className="col-md-6 col-sm-10">
               {submitted && (
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1 col-md-pull-1">
+                  <div className="col-md-10">
                     <div
                       className={`alert ${
                         !error ? 'alert-success' : 'alert-danger'
@@ -110,7 +91,7 @@ const Contact = () => {
               )}
               <div className="row">
                 <div
-                  className="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
+                  className="col-md-12 animate-box"
                   data-animate-effect="fadeInLeft">
                   <form onSubmit={onSubmit}>
                     <Input
@@ -134,7 +115,10 @@ const Contact = () => {
                       placeholder="Phone number"
                       setValue={setPhoneNumber}
                       type="text"
-                      validators={[defaultRequiredValidator]}
+                      validators={[
+                        defaultRequiredValidator,
+                        phoneNumberValidator,
+                      ]}
                       value={phoneNumber.value}
                     />
                     <TextArea
@@ -154,6 +138,58 @@ const Contact = () => {
                       </button>
                     </div>
                   </form>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-sm-10">
+              <div
+                className={[style.container, 'animate-box'].join(' ')}
+                data-animate-effect="fadeInLeft">
+                <div className={style.icon}>
+                  <i className="icon-mail"></i>
+                </div>
+                <div className={style.text}>
+                  <a href="mailto:info@arumi.design">info@arumi.design</a>
+                </div>
+              </div>
+              <div
+                className={[style.container, 'animate-box'].join(' ')}
+                data-animate-effect="fadeInLeft">
+                <div className={style.icon}>
+                  <i className="icon-phone"></i>
+                </div>
+                <div className={style.text}>
+                  <a href="tel://+12815120156">+1 (281) 512-0156</a>
+                </div>
+              </div>
+              <div
+                className={[style.container, 'animate-box'].join(' ')}
+                data-animate-effect="fadeInLeft">
+                <div className={style.icon}>
+                  <i className="icon-instagram"></i>
+                </div>
+                <div className={style.text}>
+                  <a
+                    href="https://www.instagram.com/designsbyarumi/"
+                    target="_blank"
+                    rel="noreferrer">
+                    Instagram
+                  </a>
+                </div>
+              </div>
+              <div
+                className={[style.container, 'animate-box'].join(' ')}
+                data-animate-effect="fadeInLeft">
+                <div className={style.icon}>
+                  <i className="icon-linkedin2"></i>
+                </div>
+                <div className={style.text}>
+                  <a
+                    href="https://www.linkedin.com/in/arumi-choudhary/"
+                    target="_blank"
+                    rel="noreferrer">
+                    LinkedIn
+                  </a>
                 </div>
               </div>
             </div>
