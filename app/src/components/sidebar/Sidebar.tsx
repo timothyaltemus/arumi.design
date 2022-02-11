@@ -57,6 +57,7 @@ const Sidebar = () => {
 
   return (
     <>
+      <div className="menu-bar"></div>
       <div
         className={hamburgerClasses.join(' ')}
         onClick={toggleMenu}

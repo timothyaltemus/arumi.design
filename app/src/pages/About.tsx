@@ -30,7 +30,7 @@ const About = () => {
                   enjoy carefully investigating human experience and behavior. I
                   have a strong passion to understand how humans interact with
                   multiple interfaces. I dream up new ways to spark and distill
-                  insight, and inspire teams and clients to address people's
+                  insight and inspire teams and clients to address people's
                   needs through bold, optimistic design.
                 </p>
                 <p>
