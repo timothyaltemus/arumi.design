@@ -149,3 +149,7 @@ export const work: Work[] = [
   //     image: 'work-1.png',
   //   },
 ];
+
+export const getProject = (id: string) => {
+  return work.find((project) => project.id === id);
+};

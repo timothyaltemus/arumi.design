@@ -8,7 +8,8 @@ const KNOWN_ROUTES = [
   /^\/contact/,
   /^\/work/,
   /^\/work\/.*/,
-  /\/credits/,
+  /^\/credits/,
+  /^\/projects\/.*/,
 ];
 
 const Sidebar = () => {

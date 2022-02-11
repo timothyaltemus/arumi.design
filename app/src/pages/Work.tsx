@@ -8,6 +8,7 @@ import { work } from '../data/work';
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Work = () => {
   useEffect(() => {
+    window.scroll(0, 0);
     initAnimations();
   }, []);
 
@@ -28,6 +29,7 @@ const Work = () => {
           <div className="row">
             {work.map((project, index) => (
               <div
+                key={index}
                 className="col-md-6 animate-box"
                 data-animate-effect="fadeInLeft">
                 <ProjectThumbnail key="index" project={project} />
