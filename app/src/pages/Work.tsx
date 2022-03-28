@@ -3,7 +3,7 @@ import SmallContact from '../components/contact/SmallContact';
 import { initAnimations } from '../utils/animations';
 import ProjectThumbnail from '../components/work/ProjectThumbnail';
 
-import { work } from '../data/work';
+import { works } from '../data/works';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Work = () => {
@@ -27,7 +27,7 @@ const Work = () => {
             </div>
           </div>
           <div className="row">
-            {work.map((project, index) => (
+            {works.map((project, index) => (
               <div
                 key={index}
                 className="col-md-6 animate-box"

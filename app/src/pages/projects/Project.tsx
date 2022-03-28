@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { initAnimations } from '../../utils/animations';
 import style from './Project.module.css';
-import { getProject, getProjectByIndex } from '../../data/work';
+import { getProject, getProjectByIndex } from '../../data/works';
 import { resizeProjectDetails } from '../../utils/sizing';
 import SmallContact from '../../components/contact/SmallContact';
 
@@ -50,11 +50,15 @@ const Project = () => {
               data-animate-effect="fadeInRight"
               id="project-details-image">
               <div className={style['image-container']}>
-                <img
-                  className={style.image}
-                  src={`/images/${project.image}`}
-                  alt=""
-                />
+                {project.images.map((image, key) => (
+                  <img
+                    key={key}
+                    style={key !== 0 ? { marginTop: '2.5rem' } : {}}
+                    className={style.image}
+                    src={`/images/${image}`}
+                    alt=""
+                  />
+                ))}
               </div>
             </div>
             <div className={style.details}>
@@ -79,6 +83,25 @@ const Project = () => {
                     <p key={key}>{paragraph}</p>
                   ))}
                 </div>
+                {project.links && project.links.length > 0 ? (
+                  <div className="animate-box" data-animate-effect="fadeInLeft">
+                    To see more about this project please visit the following
+                    links :
+                    <ul style={{ textAlign: 'left' }}>
+                      {project.links?.map((link, key) => (
+                        <li>
+                          <a
+                            key={key}
+                            href={link.url}
+                            target="_blank"
+                            rel="noreferrer">
+                            {link.text ?? link.url}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
