@@ -28,7 +28,7 @@ export const works: Work[] = [
     thumbnail: 'thumbnail-6.png',
     description: [
       'I conducted a Usability Study to assess how easy it is for participants to complete core tasks in my design. During this Usability Study, I followed my participants as they interacted with my prototype. As a researcher, I collected feedback as I watched the users interact with the prototype.',
-      'I recruited five participants in the usability study as this sample size is large enough to uncover major user issues but small enough to keep the cost down.During the usability study, my users were open and honest about their problems. Thanks to their feedback, I was able to work out solutions to improve the restaurant’s application.',
+      "I recruited five participants in the Usability Study as this sample size is large enough to uncover major user issues but small enough to keep the cost down. During the usability study, my users were open and honest about their problems. Thanks to their feedback, I was able to work out solutions to improve the restaurant's application.",
     ],
     images: ['work-6.png', 'work-6-1.png'],
     views: getRandomNumber({ max: 304, min: 178 }),
