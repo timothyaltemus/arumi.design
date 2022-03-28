@@ -28,7 +28,7 @@ export const works: Work[] = [
     thumbnail: 'thumbnail-6.png',
     description: [
       'I conducted a Usability Study to assess how easy it is for participants to complete core tasks in my design. During this Usability Study, I followed my participants as they interacted with my prototype. As a researcher, I collected feedback as I watched the users interact with the prototype.',
-      'I recruited five participants in the usability study as this sample size is large enough to uncover major user issues but small enough to keep the cost down.During the usability study, my users were open and honest about their problems. Thanks to their feedback, I was able to work out solutions to improve the restaurant’s application.',
+      "I recruited five participants in the Usability Study as this sample size is large enough to uncover major user issues but small enough to keep the cost down. During the Usability Study, my users were open and honest about their problems. Thanks to their feedback, I was able to work out solutions to improve the restaurant's application.",
     ],
     images: ['work-6.png', 'work-6-1.png'],
     views: getRandomNumber({ max: 304, min: 178 }),
@@ -51,7 +51,7 @@ export const works: Work[] = [
     description: [
       'For my Google UX Course project, I conducted a Competitive Audit. A Competitive Audit is just one tool to explore ideas for designs, so we can learn from others about what has worked and not worked. By conducting a Competitive Audit I was able to identify my key competitors, review the products that my competitors offer, understand how my competitors position themselves in the market, examine what my competition does well and what they could do better, and consider how my competitors talk about themselves. ',
       'I incorporated both direct and indirect competitors in my audit as it was important to audit a wide range of products that compete with mine to get a full picture of the landscape. This Audit helped inform my design process such as "How did my competitors approach designing their products"? Knowing what others have done can help me make better design decisions for my own product. This Audit also helped me solve usability problems such as "Is my competitor\'s website difficult to use"? This helped me identify what to avoid adding to my own application.',
-      "This Audit also helped reveal gaps in the market. For example, are there user needs my competitors do not meet? Lastly, this audit provided me with reliable evidence because design ideas are most successful when there's a deep understanding of business needs and market gaps. Competitive audits are a huge part of gathering that information and knowing all of these things can help a product save time, money, and energy.",
+      "This Audit also helped reveal gaps in the market. For example, are there user needs my competitors do not meet? Lastly, this Audit provided me with reliable evidence because design ideas are most successful when there's a deep understanding of business needs and market gaps. Competitive Audits are a huge part of gathering that information and knowing all of these things can help a product save time, money, and energy.",
     ],
     images: ['work-7.png'],
     views: getRandomNumber({ max: 304, min: 178 }),
