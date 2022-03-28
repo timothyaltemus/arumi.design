@@ -2,7 +2,7 @@ import { Work } from '../models/work';
 import { getRandomNumber } from '../utils/random';
 
 // TODO: Migrate all of this to a database (e.g. Firebase Storage)
-export const work: Work[] = [
+export const works: Work[] = [
   {
     id: '2a9c7328-8f22-40ca-84af-be0dd034ced1',
     title:
@@ -14,13 +14,13 @@ export const work: Work[] = [
       'I used the information in Personas to create designs that speak directly to users, like Katerina and Michael. This ensures users have the best experience when using my product!',
     ],
     thumbnail: 'thumbnail-1.png',
-    image: 'work-1.png',
+    images: ['work-1.png'],
     platform: 'Mobile',
     tags: ['User Persona', 'UX', 'Google UX Course', 'Mobile'],
     role: 'UX Researcher',
     timeline: '1 Day',
     type: 'User Persona',
-    views: getRandomNumber({ max: 190, min: 125 }),
+    views: getRandomNumber({ max: 304, min: 178 }),
   },
   {
     id: 'd0e86a09-d0d0-478e-86a8-4b717d802334',
@@ -32,8 +32,8 @@ export const work: Work[] = [
       "Through the User Journey Map, I identified some of the user's emotions, which allowed me to improve the overall user experience for all users.",
     ],
     thumbnail: 'thumbnail-2.png',
-    image: 'work-2.png',
-    views: getRandomNumber({ max: 190, min: 125 }),
+    images: ['work-2.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
     tags: ['User Journey', 'UX', 'Google UX Course', 'Mobile'],
     role: 'UX Researcher',
     timeline: '5 Days',
@@ -51,8 +51,8 @@ export const work: Work[] = [
       'After carefully conducting a Heuristic Evaluation on both the Log In and Guest versions of the website, I was able to present my recommendations as well as actionable items to both the business and the project stakeholders.',
     ],
     thumbnail: 'thumbnail-3.png',
-    image: 'work-3.png',
-    views: getRandomNumber({ max: 190, min: 125 }),
+    images: ['work-3.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
     tags: ['Heuristic Evaluation', 'UX', 'Desktop'],
     role: 'UX Researcher',
     timeline: '3 Weeks',
@@ -73,8 +73,8 @@ export const work: Work[] = [
       'I used simple rectangles, shapes and icons to get my word across in my designs. My main focus while creating these Wireframes were functionality. After completing these Wireframes, I went on to create prototypes in Figma and conducted a Usability Study for my Wireframes.',
     ],
     thumbnail: 'thumbnail-4.png',
-    image: 'work-4.png',
-    views: getRandomNumber({ max: 190, min: 125 }),
+    images: ['work-4.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
     tags: ['Wireframes', 'Prototype', 'UX', 'Google UX Course', 'Mobile'],
     role: 'UX Designer',
     timeline: '3 days',
@@ -90,71 +90,94 @@ export const work: Work[] = [
       'Through this training, I was able to learn the essentials of Figma, how to design mobile and desktop apps as well as wireframing.',
     ],
     thumbnail: 'thumbnail-5.png',
-    image: 'work-5.png',
-    views: getRandomNumber({ max: 190, min: 125 }),
+    images: ['work-5.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
     tags: ['Design', 'Prototype', 'UX', 'Mobile'],
     role: 'UX Designer',
     timeline: '1 Week',
     platform: 'Mobile',
     type: 'Design & Prototype',
   },
-  //   {
-  //     id: 'f7ddc384-7ba7-4921-9d37-08f3b1f7ab97',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //     views: getRandomNumber({ max: 190, min: 125 }),
-  //   },
-  //   {
-  //     id: '0ef9cc46-0968-47ab-82e7-f739d5bfbe86',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-  //   {
-  //     id: '34bab6a5-7081-4c3d-9fb7-a0f5d78ae025',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-  //   {
-  //     id: '1e6106dc-4637-4d25-8b62-63e8ccbfc92a',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-  //   {
-  //     id: '936b88a6-0a9b-4ab3-af37-12883ec15359',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-  //   {
-  //     id: 'a9f887f3-ccd7-4043-851e-35981b505cbc',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-  //   {
-  //     id: '1792c8dd-ce1b-460a-ba5a-ecbd9c99ec73',
-  //     title: 'Arumi',
-  //     description: [],
-  //     thumbnail: 'thumbnail-1.png',
-  //     image: 'work-1.png',
-  //   },
-];
+  {
+    id: 'e19537bc-f95a-40cc-83a0-cd221a28a5c9',
+    title: 'Usability Study',
+    thumbnail: 'thumbnail-6.png',
+    description: [
+      'I conducted a Usability Study to assess how easy it is for participants to complete core tasks in my design. During this Usability Study, I followed my participants as they interacted with my prototype. As a researcher, I collected feedback as I watched the users interact with the prototype.',
+      'I recruited five participants in the usability study as this sample size is large enough to uncover major user issues but small enough to keep the cost down.During the usability study, my users were open and honest about their problems. Thanks to their feedback, I was able to work out solutions to improve the restaurant’s application.',
+    ],
+    images: ['work-6.png', 'work-6-1.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
+    tags: ['Usability Study', 'UX', 'UX Google Course', 'Mobile'],
+    role: 'UX Researcher',
+    timeline: '1 Week',
+    platform: 'Mobile',
+    type: 'Usability Study',
+    links: [
+      {
+        text: 'View the full Usability Study.',
+        url: 'https://docs.google.com/spreadsheets/d/1I8J6hbnN8XxcNBA61FuwFLWJJIHQ0gUlIP96aWYQ6qg/edit?usp=sharing',
+      },
+    ],
+  },
+  {
+    id: '4877a155-34ed-4c4e-bed4-c3476fd219d9',
+    title: 'Competitive Audit',
+    thumbnail: 'thumbnail-7.png',
+    description: [
+      'For my Google UX Course project, I conducted a Competitive Audit. A Competitive Audit is just one tool to explore ideas for designs, so we can learn from others about what has worked and not worked. By conducting a Competitive Audit I was able to identify my key competitors, review the products that my competitors offer, understand how my competitors position themselves in the market, examine what my competition does well and what they could do better, and consider how my competitors talk about themselves. ',
+      'I incorporated both direct and indirect competitors in my audit as it was important to audit a wide range of products that compete with mine to get a full picture of the landscape. This Audit helped inform my design process such as "How did my competitors approach designing their products"? Knowing what others have done can help me make better design decisions for my own product. This Audit also helped me solve usability problems such as "Is my competitor\'s website difficult to use"? This helped me identify what to avoid adding to my own application.',
+      "This Audit also helped reveal gaps in the market. For example, are there user needs my competitors do not meet? Lastly, this audit provided me with reliable evidence because design ideas are most successful when there's a deep understanding of business needs and market gaps. Competitive audits are a huge part of gathering that information and knowing all of these things can help a product save time, money, and energy.",
+    ],
+    images: ['work-7.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
+    tags: ['Competitive Audit', 'UX', 'UX Google Course', 'Mobile'],
+    role: 'UX Researcher',
+    timeline: '4 days',
+    platform: 'Mobile',
+    type: 'Competitive Audit',
+    links: [
+      {
+        text: 'View the Competitive Audit.',
+        url: 'https://docs.google.com/spreadsheets/d/1knjx-BiykUFoKuIGxOkOlqEe9el5D3_O5vS8R7Xavu4/edit?usp=sharing',
+      },
+      {
+        text: 'View the Competitive Audit Report.',
+        url: 'https://docs.google.com/document/d/1XumDF3V1uduO75vCPv7E1hxq5GoYJS6CL7hSOpgeZ9E/edit?usp=sharing',
+      },
+    ],
+  },
+  {
+    id: '660cc47c-5298-4902-aca2-666735424fb3',
+    title: 'UX Research Study Plan',
+    thumbnail: 'thumbnail-8.png',
+    description: [
+      'For my Google UX Course project, I created a highly effective Research Study Plan. There are seven elements that I included: the project background, the research goals, the detailed research questions, the key performance indicators or KPIs, the methodology, the participants, and the script or questions I asked the participants.',
+      'The first element of my plan is the project background. The project background answers the question: "What led me to conduct this research"? I created a mobile application for a local restaurant that allows its users to place orders online through this application.  This led me to determine "What design problems am I trying to solve? And how will the results of the research impact my design decisions?". I used these answers to create goals for my research project.',
+      'The goals for the research project helped me understand key problems such as determining whether this application was difficult to use. I needed to consider the ease of use in order to understand why customers join this app and leave or stay. After I determined my research goals, I developed detailed research questions for my plan such as "how long does it take a user to find and order an item from the menu of the app? And what can I learn from the user flow or the steps that users take to place an order"?',
+      'I measured my progress using KPI’s such as time on task and conversion rates. For my app, one thing I wanted to track is how many users in the research study complete their search for a menu item and how long they spend on this task. The next element of my plan is the methodology. This is where I documented the steps I took to conduct my research. I needed to determine "How will I collect data and how will I analyze the data once I get it"? To find out if users are able to find and order in the new app, I conducted a survey of prospective users. I recruited frequent customers of this restaurant as well as of competing restaurants in the area to participate in the survey and help determine next steps in my research process.',
+    ],
+    images: ['work-8.png'],
+    views: getRandomNumber({ max: 304, min: 178 }),
+    tags: ['UX Research', 'UX Study Plan', 'UX', 'UX Google Course', 'Mobile'],
+    role: 'UX Researcher',
+    timeline: '2 days',
+    platform: 'Mobile',
+    type: 'UX Study Plan',
+    links: [
+      {
+        text: 'View the full Study Plan.',
+        url: 'https://docs.google.com/document/d/1kbXRbXVJWslWe2QV3w7vLHFkC_IzkwTsPJy_-TVmyMc/edit?usp=sharing',
+      },
+    ],
+  },
+].reverse() as Work[];
 
 export const getProject = (id: string): [Work, number, number] => {
-  const index = work.findIndex((project) => project.id === id);
-  return [work[index], index, work.length];
+  const index = works.findIndex((project) => project.id === id);
+  return [works[index], index, works.length];
 };
 
 export const getProjectByIndex = (index: number) => {
-  return work[index];
+  return works[index];
 };
