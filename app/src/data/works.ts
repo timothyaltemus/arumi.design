@@ -24,7 +24,8 @@ export const works: Work[] = [
   },
   {
     id: 'e19537bc-f95a-40cc-83a0-cd221a28a5c9',
-    title: 'Usability Study',
+    title:
+      'Usability Study - Brazilian Steakhouse Food Delivery App (Google UX Course)',
     thumbnail: 'thumbnail-6.png',
     description: [
       'I conducted a Usability Study to assess how easy it is for participants to complete core tasks in my design. During this Usability Study, I followed my participants as they interacted with my prototype. As a researcher, I collected feedback as I watched the users interact with the prototype.',
@@ -46,7 +47,8 @@ export const works: Work[] = [
   },
   {
     id: '4877a155-34ed-4c4e-bed4-c3476fd219d9',
-    title: 'Competitive Audit',
+    title:
+      'Competitive Audit - Brazilian Steakhouse Food Delivery App (Google UX Course)',
     thumbnail: 'thumbnail-7.png',
     description: [
       'For my Google UX Course project, I conducted a Competitive Audit. A Competitive Audit is just one tool to explore ideas for designs, so we can learn from others about what has worked and not worked. By conducting a Competitive Audit I was able to identify my key competitors, review the products that my competitors offer, understand how my competitors position themselves in the market, examine what my competition does well and what they could do better, and consider how my competitors talk about themselves. ',
@@ -73,7 +75,8 @@ export const works: Work[] = [
   },
   {
     id: '660cc47c-5298-4902-aca2-666735424fb3',
-    title: 'UX Research Study Plan',
+    title:
+      'UX Research Study Plan - Brazilian Steakhouse Food Delivery App (Google UX Course)',
     thumbnail: 'thumbnail-8.png',
     description: [
       'For my Google UX Course project, I created a highly effective Research Study Plan. There are seven elements that I included: the project background, the research goals, the detailed research questions, the key performance indicators or KPIs, the methodology, the participants, and the script or questions I asked the participants.',
