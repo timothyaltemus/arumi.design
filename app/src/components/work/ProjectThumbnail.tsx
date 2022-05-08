@@ -10,7 +10,7 @@ const ProjectThumbnail = ({ project }: ProjectThumbnailProps) => {
   return (
     <Link
       to={link}
-      className="project"
+      className="project shadow"
       style={{ backgroundImage: `url(images/${project.thumbnail})` }}>
       <div className="desc">
         <div className="con">
