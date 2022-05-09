@@ -26,7 +26,7 @@ const About = () => {
                 <span className="heading-meta">Welcome &amp; Introduction</span>
                 <h3 className={styles.header}>Hello, I Am Arumi!</h3>
                 <p>
-                  I am a User Experience Technologist based in Austin, Texas. I
+                  I am a User Experience Technologist based in Houston, Texas. I
                   enjoy carefully investigating human experience and behavior. I
                   have a strong passion to understand how humans interact with
                   multiple interfaces. I dream up new ways to spark and distill
@@ -39,14 +39,21 @@ const About = () => {
                 </p>
                 <p>
                   My passion for UX Design and Research started while I was
-                  enrolled in a 2 year rotational program at an Energy
-                  Technology company. I was presented with an opportunity to
-                  rotate with the HQ UX team and have since been involved with
-                  them carefully curating designs and research for the business.
+                  enrolled in a 2 year rotational program at Baker Hughes, an
+                  energy technology company. I was presented with an opportunity
+                  to rotate with the HQ UX team and have since been involved
+                  with them carefully curating designs and research for the
+                  business.
                 </p>
                 <p>
-                  Aside from this, I enjoy running, participating in marathons
-                  and being a full time dog mom to my puppy,{' '}
+                  In my personal time I enjoy running, working on my{' '}
+                  <a
+                    href="https://www.instagram.com/designsbyarumi/"
+                    target="_blank"
+                    rel="noreferrer">
+                    UX based blog
+                  </a>
+                  , and being a full time dog mom to my puppy,{' '}
                   <a
                     href="https://www.instagram.com/pixeltheminidood/"
                     target="_blank"
