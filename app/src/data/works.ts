@@ -40,6 +40,12 @@ export const works: Work[] = [
     timeline: '3 months',
     platform: 'Mobile',
     type: 'Prototype',
+    links: [
+      {
+        text: 'View the Prototype',
+        url: 'https://www.figma.com/proto/dpvKShUz1XD7L4UYb9aq1u/Brazilian-Steakhouse-Food-Delivery-App-Prototypes?page-id=248%3A1199&node-id=254%3A1200&viewport=241%2C48%2C0.25&scaling=scale-down&starting-point-node-id=254%3A1200&show-proto-sidebar=1',
+      },
+    ],
   },
   {
     id: '2f58950c-4854-4eed-89d5-012a2fd07d56',
