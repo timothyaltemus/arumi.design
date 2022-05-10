@@ -27,8 +27,8 @@ export const works: Work[] = [
     title:
       'High Fidelity Prototype - Brazilian Steakhouse Food Delivery App (Google UX Course)',
     description: [
-      'The first project for the Google UX Design Professional Certificate focused on creating a Food Delivery Mobile for a local Brazilian Steakhouse.',
-      'The Brazilian Steakhouse is a concept created for a local restaurant in the Texas area. The Brazilian Steakhouse targets customers like commuters and workers/students who lack the time or ability to prepare a family dinner.',
+      'The first project for the Google UX Design Professional Certificate focuses on creating a Food Delivery Mobile app for a local Brazilian Steakhouse.',
+      'The Brazilian Steakhouse is a concept created for a local restaurant in the Texas area. This application targets customers like commuters and workers/students who lack the time or ability to prepare a family dinner.',
       'The High Fidelity Prototype focuses on tackling some of the user’s pain points such as working adults who are too busy to prepare or order meals in person.',
       'This design also solves other pain points such as platforms that are not equipped with assistive technologies and text heavy menus that are often difficult to read and order from.',
     ],
